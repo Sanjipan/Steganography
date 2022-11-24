@@ -3,7 +3,7 @@
 # 2. Decode the Text message
 # 3. Exit
 
-def image_Stegonography():
+def image_Stegonography(file):
     def Encode():
         pass
 

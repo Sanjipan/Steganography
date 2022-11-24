@@ -3,7 +3,10 @@
 # 2. Decode the Text message
 # 3. Exit
 
-def audio_steganography():
+import wave
+
+
+def audio_steganography(file):
     def Encode():
         pass
 

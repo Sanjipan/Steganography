@@ -3,5 +3,5 @@
 # 2. Decode the Text message
 # 3. Exit
 
-def vedio_steganography():
+def vedio_steganography(file):
     pass
