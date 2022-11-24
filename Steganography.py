@@ -5,6 +5,7 @@ from libs import vedio_steganography
 
 
 def main():
+    file = input("ENTER FILE NAME")
     while True:
         print("MAIN MENU")
         print("1. IMAGE STEGANOGRAPHY {Hiding Text in Image cover file}")
@@ -14,13 +15,13 @@ def main():
         print("5. Exit")
         n = int(input("Enter Your Choice:"))
         if n == 1:
-            image_steganography.image_Stegonography()
+            image_steganography.image_Stegonography(file)
         elif n == 2:
-            text_steganography.text_steganography()
+            text_steganography.text_steganography(file)
         elif n == 3:
-            audio_steganography.audio_steganography()
+            audio_steganography.audio_steganography(file)
         elif n == 4:
-            vedio_steganography.vedio_steganography()
+            vedio_steganography.vedio_steganography(file)
         elif n == 5:
             break
         else:
