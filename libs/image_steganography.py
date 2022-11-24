@@ -5,7 +5,6 @@
 
 def image_Stegonography():
     def Encode():
-
         pass
 
     def Decode():
