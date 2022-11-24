@@ -5,8 +5,26 @@ from libs import vedio_steganography
 
 
 def main():
-
-    pass
+    while True:
+        print("MAIN MENU")
+        print("1. IMAGE STEGANOGRAPHY {Hiding Text in Image cover file}")
+        print("2. TEXT STEGANOGRAPHY {Hiding Text in Text cover file}")
+        print("3. AUDIO STEGANOGRAPHY {Hiding Text in Audio cover file}")
+        print("4. VIDEO STEGANOGRAPHY {Hiding Text in Video cover file}")
+        print("5. Exit")
+        n = int(input("Enter Your Choice:"))
+        if n == 1:
+            image_steganography.image_Stegonography()
+        elif n == 2:
+            text_steganography.text_steganography()
+        elif n == 3:
+            audio_steganography.audio_steganography()
+        elif n == 4:
+            vedio_steganography.vedio_steganography()
+        elif n == 5:
+            break
+        else:
+            print("Invalid Input")
 
 
 if __name__ == "__main__":
