@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
 
 # SYS
-# python main.py -<e-->encode> <file location>
-# python main.py -<d-->decode> <file location>
+# python Steganography.py -<e-->encode> <file location>
+# python Steganography.py -<d-->decode> <file location>
 
 
