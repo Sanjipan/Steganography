@@ -2,7 +2,7 @@
 # 1. Encode the Text message
 # 2. Decode the Text message
 # 3. Exit
-
+import os
 import wave
 
 
@@ -38,13 +38,12 @@ def audio_steganography(file):
                 frame_byte[k] = (frame_byte[k] & 254) | results[i]
             k = k + 1
         frame_modified = bytes(frame_byte)
-
-        stegofile = input("ENTER STIGO FILE NAME(With Extension):")
-        with wave.open(stegofile, 'wb') as fd:
+        os.remove(file)
+        with wave.open(file, 'wb') as fd:
             fd.setparams(song.getparams())
             fd.writeframes(frame_modified)
         print("ENCODING DATA Sucessfull")
-        print("LOCATION:{}".format(stegofile))
+        print("LOCATION:{}".format(file))
         song.close()
 
     def Decode():

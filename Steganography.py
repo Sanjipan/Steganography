@@ -40,8 +40,16 @@ if __name__ == "__main__":
 # 5. Exit
 
 
-# SYS![](../../AppData/Local/Temp/download.jpg)
-# python Steganography.py -<e-->encode> <file location>
-# python Steganography.py -<d-->decode> <file location>
+# SYS
 
-
+# python <filename.py> -t -e <location of file>
+# python <filename.py> -t -d <location of file>
+#
+# python <filename.py> -a -e <location of file>
+# python <filename.py> -a -d <location of file>
+#
+# python <filename.py> -v -e <location of file>
+# python <filename.py> -v -d <location of file>
+#
+# python <filename.py> -i -e <location of file>
+# python <filename.py> -i -d <location of file>
