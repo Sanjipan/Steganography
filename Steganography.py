@@ -42,14 +42,14 @@ if __name__ == "__main__":
 
 # SYS
 
-# python <filename.py> -t -e <location of file>
-# python <filename.py> -t -d <location of file>
+# python3 ./<filename.py> -t -e <location of file>
+# python3 ./<filename.py> -t -d <location of file>
 #
-# python <filename.py> -a -e <location of file>
-# python <filename.py> -a -d <location of file>
+# python3 ./<filename.py> -a -e <location of file>
+# python3 ./<filename.py> -a -d <location of file>
 #
-# python <filename.py> -v -e <location of file>
-# python <filename.py> -v -d <location of file>
+# python3 ./<filename.py> -v -e <location of file>
+# python3 ./<filename.py> -v -d <location of file>
 #
-# python <filename.py> -i -e <location of file>
-# python <filename.py> -i -d <location of file>
+# python3 ./<filename.py> -i -e <location of file>
+# python3 ./<filename.py> -i -d <location of file>
