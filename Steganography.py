@@ -17,7 +17,7 @@ def main():
         if n == 1:
             image_steganography.image_Stegonography(file)
         elif n == 2:
-            text_steganography.text_steganography(file)
+            text_steganography.text_steganography()
         elif n == 3:
             audio_steganography.audio_steganography(file)
         elif n == 4:
@@ -53,3 +53,5 @@ if __name__ == "__main__":
 #
 # python3 ./<filename.py> -i -e <location of file>
 # python3 ./<filename.py> -i -d <location of file>
+#
+# python3 ./<filname.py> -h -----> help
