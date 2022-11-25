@@ -1,10 +1,3 @@
-import numpy as np
-import pandas as pd
-import os
-import cv2
-from matplotlib import pyplot as plt
-
-
 # TEXT STEGANOGRAPHY OPERATIONS
 # 1. Encode the Text message
 # 2. Decode the Text message
@@ -65,6 +58,7 @@ def text_steganography():
             file3.close()
             file_1.close()
             print("Stego file has successfully generated")
+
         count2 = 0
         file1 = open("cover_text.txt", "r")
         for line in file1:
@@ -85,13 +79,52 @@ def text_steganography():
             Encode()
 
     def BinaryToDecimal(binary):
-        pass
+        string = int(binary, 2)
+        return string
 
     def Decode():
-        pass
+        ZWC_reverse = {u'\u200C': "00", u'\u202C': "01", u'\u202D': "11", u'\u200E': "10"}
+        stego = input("Please enter the stego file name(with extension) to decode the message: ")
+        file_4 = open(stego, "r", encoding="utf=8")
+        temp = ''
+        for Line in file_4:
+            for words in Line.split():
+                T1 = words
+                binary_extract = ""
+                for letter in T1:
+                    if letter in ZWC_reverse:
+                        binary_extract += ZWC_reverse[letter]
+                if binary_extract == "111111111111":
+                    break
+                else:
+                    temp += binary_extract
+        print("Encrypted message presented in code bits: ", temp)
+        length = len(temp)
+        print("length of encoded bits: ", length)
+        i = 0
+        a = 0
+        b = 4
+        c = 4
+        d = 12
+        final = ""
+        while i < len(temp):
+            t3 = temp[a:b]
+            a += 12
+            b += 12
+            i += 12
+            t4 = temp[c:d]
+            c += 12
+            d += 12
+            if t3 == '0110':
+                decimal_data = BinaryToDecimal(t4)
+                final += str((decimal_data ^ 170) + 48)
+            elif t3 == '0011':
+                decimal_data = BinaryToDecimal(t4)
+                final += str((decimal_data ^ 170) - 48)
+        print("Message after decoding from the stego file: ", final)
 
     while True:
-        print("TEXT STEGANOGRAPHY OPERATIONS\n")
+        print("TEXT STEGANOGRAPHY OPERATIONS")
         print("1. Encode the Text message")
         print("2. Decode the Text message")
         print("3. Exit")
@@ -104,3 +137,6 @@ def text_steganography():
             break
         else:
             print("INVALID CHOICE")
+
+
+text_steganography()
