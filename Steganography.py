@@ -54,4 +54,4 @@ if __name__ == "__main__":
 # python3 ./<filename.py> -i -e <location of file>
 # python3 ./<filename.py> -i -d <location of file>
 #
-# python3 ./<filname.py> -h -----> help
+# python3 ./<filename.py> -h -----> help
