@@ -6,7 +6,7 @@ import os
 import wave
 
 
-def audio_steganography(file):
+def audio_steganography(file, n):
     def Encode():
         song = wave.open(file, mode='rb')
         nframes = song.getnframes()
@@ -73,17 +73,8 @@ def audio_steganography(file):
                     p = 1
                     break
 
-    while True:
-        print("AUDIO STEGANOGRAPHY OPERATIONS\n")
-        print("1.Encode the Text message")
-        print("2.Decode the Text message")
-        print("3.Exit")
-        n = int(input("Enter Your Choice:"))
-        if n == 1:
-            Encode()
-        elif n == 2:
-            Decode()
-        elif n == 3:
-            break
-        else:
-            print("INVALID CHOICE")
+    if n == 0:
+        Encode()
+    else:
+        Decode()
+
