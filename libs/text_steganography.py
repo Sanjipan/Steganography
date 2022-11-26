@@ -28,9 +28,9 @@ def text_steganography(file):
         ZWC = {"00": u'\u200C', "01": u'\u202C', "11": u'\u202D', "10": u'\u200E'}
         file1 = open(file, 'r+')
         f = file.split("/")
-        f[len(f)] = "/temp.txt"
+        f[len(f)-1] = "/temp.txt"
         a = ""
-        for i in range(0, len(f)-1):
+        for i in range(0, len(f)-2):
             a = a + "/" + f[i]
         a = a + f[len(f)]
         file3 = open(a, 'w+', encoding="utf-8")
