@@ -34,7 +34,7 @@ def text_steganography(file):
         for i in range(1, len(aa) - 1):
             a = a + "/" + aa[i]
         a = a + "/" + "temp.txt"
-        file3 = open(a, 'w+', encoding="utf-8")
+        file3 = open(a, 'w+', encoding='utf-8')
         word = []
         for line in file1:
             word = word + line.split()
@@ -47,6 +47,8 @@ def text_steganography(file):
                 x = res1[j+ii] + res1[ii+j+1]
                 w = w + ZWC[x]
                 j = j + 2
+                if j == 12:
+                    break
             s1 = s + w
             file3.write(s1)
             file3.write(" ")
