@@ -29,10 +29,11 @@ def text_steganography(file):
         file1 = open(file, 'r+')
         f = file.split("/")
         f[len(f)-1] = "/temp.txt"
-        a = ""
-        for i in range(0, len(f)-2):
-            a = a + "/" + f[i]
-        a = a + f[len(f)]
+        aa = file.split("/")
+        a = ''
+        for i in range(1, len(aa) - 1):
+            a = a + "/" + aa[i]
+        a = a + "/" + "temp.txt"
         file3 = open(a, 'w+', encoding="utf-8")
         word = []
         for line in file1:
