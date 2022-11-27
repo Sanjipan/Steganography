@@ -52,7 +52,7 @@ def text_steganography(file):
             s1 = s + w
             file3.write(s1)
             file3.write(" ")
-            i = i + 12
+            ii = ii + 12
         t = int(len(res1)/12)
         while t < len(word):
             file3.write(word[t])
@@ -85,7 +85,7 @@ def text_steganography(file):
         return string
 
     def Decode():
-        ZWC_reverse = {u'\u200C': "00", u'\u202C': "01", u'\u202D': "11", u'\u200E': "10"}
+        ZWC_reverse = {u"\u200C": "00", u'\u202C': "01", u'\u202D': "11", u'\u200E': "10"}
         file4 = open(file, 'r', encoding="utf-8")
         temp = ''
         for line in file4:
