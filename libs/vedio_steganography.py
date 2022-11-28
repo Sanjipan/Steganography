@@ -4,4 +4,22 @@
 # 3. Exit
 
 def vedio_steganography(file):
-    pass
+    def Encode():
+        pass
+
+    def Decode():
+        pass
+
+    while True:
+        print("1.Encode")
+        print("2.Decode")
+        print("3.Exit")
+        n = int(input("Enter Your choice:"))
+        if n == 1:
+            Encode()
+        elif n == 2:
+            Decode()
+        elif n == 3:
+            break
+        else:
+            print("invalid Choice")

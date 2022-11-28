@@ -47,8 +47,6 @@ def text_steganography(file):
                 x = res1[j+ii] + res1[ii+j+1]
                 w = w + ZWC[x]
                 j = j + 2
-                if j == 12:
-                    break
             s1 = s + w
             file3.write(s1)
             file3.write(" ")
@@ -116,11 +114,15 @@ def text_steganography(file):
             c = c + 12
             d = d + 12
             if t3 == "0110":
-                decimal_data = BinaryToDecimal(t4)
-                final = final + chr((decimal_data ^ 170) + 48)
+                for i in range(0, len(t4), 8):
+                    temp_data = t4[i:i + 8]
+                    decimal_data = BinaryToDecimal(temp_data)
+                    final = final + chr((decimal_data ^ 170) + 48)
             elif t3 == "0011":
-                decimal_data = BinaryToDecimal(t4)
-                final = final + chr((decimal_data ^ 170) - 48)
+                for i in range(0, len(t4), 8):
+                    temp_data = t4[i:i + 8]
+                    decimal_data = BinaryToDecimal(temp_data)
+                    final = final + chr((decimal_data ^ 170) - 48)
         print("Message after decoding from the stego file:- {}".format(final))
 
     while True:
