@@ -5,7 +5,7 @@
 import cv2
 
 
-def vedio_steganography(file):
+def video_steganography(file):
 
     def encryption(data):
         return data
