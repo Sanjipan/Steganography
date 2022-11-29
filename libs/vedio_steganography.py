@@ -39,7 +39,7 @@ def video_steganography():
 
         S = KSA(key)
 
-        keystream = np.arry(PRGA(S, len(plaintext)))
+        keystream = np.array(PRGA(S, len(plaintext)))
         plaintext = np.array([ord(i)] for i in plaintext)
 
         cipher = keystream ^ plaintext
