@@ -7,6 +7,7 @@ import numpy as np
 
 
 def video_steganography(file):
+
     def PRGA(s, num):
         i = 0
         j = 0
@@ -17,7 +18,7 @@ def video_steganography(file):
             j = (j + s[i]) % 256
             s[i], s[j] = s[j], s[i]
             K = s[(s[i] + s[j]) % 256]
-            key.append(key)
+            key.append(K)
         return key
 
     def KSA(key):
@@ -71,6 +72,24 @@ def video_steganography(file):
         data = data + '*^*^*'
 
         binary_data = msgtobinary(data)
+        length_data = len(binary_data)
+
+        index_data = 0
+
+        for i in frame:
+            for pixel in i:
+                r, g, b = msgtobinary(pixel)
+                if index_data < length_data:
+                    pixel[0] = int(r[:-1] + binary_data[index_data], 2)
+                    index_data = index_data + 1
+                if index_data < length_data:
+                    pixel[1] = int(g[:1] + binary_data[index_data], 2)
+                    index_data = index_data + 1
+                if index_data < length_data:
+                    pixel[2] = int(b[:-1] + binary_data[index_data], 2)
+                    index_data = index_data + 1
+                if index_data >= length_data:
+                    break
         return frame
 
     def Encode():
@@ -91,14 +110,14 @@ def video_steganography(file):
         cap.release()
         print("Total Number of Frame in Selected Video:", max_frame)
 
-        n = int(input("Enter the frame number where you want to embed data:"))
+        num = int(input("Enter the frame number where you want to embed data:"))
         frame_number = 0
         while vidcap.isOpened():
             frame_number = frame_number + 1
             ret, frame = vidcap.read()
             if not ret:
                 break
-            if frame_number == n:
+            if frame_number == num:
                 change_frame_with = embed(frame)
                 frame_ = change_frame_with
                 frame = change_frame_with
@@ -106,17 +125,52 @@ def video_steganography(file):
         print("Encoded the data successfully in the video file")
         return frame_
 
-    def Decode():
+    def decryption(ciphertext):
+        key = input("Enter the key:")
+        key = preparing_key_array(key)
+
+        S = KSA(key)
+
+        keystream = np.array(PRGA(S, len(ciphertext)))
+        ciphertext = np.array([ord(i) for i in ciphertext])
+
+        decoded = keystream ^ ciphertext
+        dtext = ''
+        for c in decoded:
+            dtext = dtext + chr(c)
+        return dtext
+
+    def extract(frame):
+        data_binary = ""
+        final_decode_msg = ""
+        for i in frame:
+            for pixel in i:
+                r, g, b = msgtobinary(pixel)
+                data_binary = data_binary + r[-1]
+                data_binary = data_binary + g[-1]
+                data_binary = data_binary + b[-1]
+                total_bytes = [data_binary[i: i+8] for i in range(0, len(data_binary), 8)]
+                decoded_data = ""
+                for byte in total_bytes:
+                    decoded_data = decoded_data + chr(int(byte, 2))
+                    if decoded_data[-5:] == "*^*^*":
+                        for j in range(0, len(decoded_data)-5, 1):
+                            final_decode_msg = final_decode_msg + decoded_data[j]
+                        final_decode_msg = decryption(final_decode_msg)
+                        print("The encoded data which was hidden in the video was :--{}".format(final_decode_msg))
+                        return
+
+    def Decode(frame_):
         cap = cv2.VideoCapture('stego.mp4')
         max_frame = 0
         while cap.isOpened():
             ret, frame = cap.read()
             if not ret:
+                max_frame = max_frame + 1
                 break
-                max_frame += 1
+
         print("Total number of Frame in selected Video: ", max_frame)
-        print("Enter the secret frame number from from where you want to extract data")
-        n = int(input())
+        num = int(input("Enter the secret frame number from from where you want to extract data"))
         vidcap = cv2.VideoCapture('stego.mp4')
         frame_number = 0
         while vidcap.isOpened():
@@ -124,7 +178,7 @@ def video_steganography(file):
             ret, frame = vidcap.read()
             if not ret:
                 break
-            if frame_number == n:
+            if frame_number == num:
                 extract(frame_)
                 return
 
@@ -134,9 +188,9 @@ def video_steganography(file):
         print("3.Exit")
         n = int(input("Enter Your choice:"))
         if n == 1:
-            Encode()
+            a = Encode()
         elif n == 2:
-            Decode()
+            Decode(a)
         elif n == 3:
             break
         else:
