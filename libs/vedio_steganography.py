@@ -7,17 +7,16 @@ import numpy as np
 
 
 def video_steganography(file):
-
     def PRGA(s, num):
         i = 0
         j = 0
         key = []
         while num > 0:
             num = num - 1
-            i = (i+1) % 256
-            j = (j+s[i]) % 256
+            i = (i + 1) % 256
+            j = (j + s[i]) % 256
             s[i], s[j] = s[j], s[i]
-            K = s[(s[i]+s[j]) % 256]
+            K = s[(s[i] + s[j]) % 256]
             key.append(key)
         return key
 
@@ -26,7 +25,7 @@ def video_steganography(file):
         S = list(range(256))
         j = 0
         for i in range(256):
-            j = (j+S[i]+key[i % key_length]) % 256
+            j = (j + S[i] + key[i % key_length]) % 256
             S[i], S[j] = S[j], S[i]
         return S
 
@@ -42,7 +41,7 @@ def video_steganography(file):
         keystream = np.arry(PRGA(S, len(plaintext)))
         plaintext = np.array([ord(i)] for i in plaintext)
 
-        cipher = keystream^plaintext
+        cipher = keystream ^ plaintext
         ctext = ''
         for c in cipher:
             ctext = ctext + chr(c)
@@ -72,23 +71,6 @@ def video_steganography(file):
         data = data + '*^*^*'
 
         binary_data = msgtobinary(data)
-        length_data = len(binary_data)
-
-        index_data = 0
-        for i in frame:
-            for pixel in i:
-                r, g, b = msgtobinary(pixel)
-                if index_data < length_data:
-                    pixel[0] = int(r[:-1] + binary_data[index_data], 2)
-                    index_data = index_data + 1
-                if index_data < length_data:
-                    pixel[1] = int(g[:-1] + binary_data[index_data], 2)
-                    index_data = index_data + 1
-                if index_data < length_data:
-                    pixel[2] = int(b[:-1] + binary_data[index_data], 2)
-                    index_data = index_data + 1
-                if index_data >= length_data:
-                    break
         return frame
 
     def Encode():
@@ -118,12 +100,33 @@ def video_steganography(file):
                 break
             if frame_number == n:
                 change_frame_with = embed(frame)
+                frame_ = change_frame_with
                 frame = change_frame_with
             out.write(frame)
         print("Encoded the data successfully in the video file")
+        return frame_
 
     def Decode():
-        pass
+        cap = cv2.VideoCapture('stego.mp4')
+        max_frame = 0
+        while cap.isOpened():
+            ret, frame = cap.read()
+            if not ret:
+                break
+                max_frame += 1
+        print("Total number of Frame in selected Video: ", max_frame)
+        print("Enter the secret frame number from from where you want to extract data")
+        n = int(input())
+        vidcap = cv2.VideoCapture('stego.mp4')
+        frame_number = 0
+        while vidcap.isOpened():
+            frame_number += 1
+            ret, frame = vidcap.read()
+            if not ret:
+                break
+            if frame_number == n:
+                extract(frame_)
+                return
 
     while True:
         print("1.Encode")
