@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 
 
-def video_steganography(file):
+def video_steganography():
 
     def PRGA(s, num):
         i = 0
