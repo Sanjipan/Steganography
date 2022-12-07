@@ -61,7 +61,7 @@ def Video_Steganography(file, n):
         except IndexError as e:
             print("[Done]")
         a = a.join([i for i in secret])
-        print(a)
+        print("Your Secret Message:{}".format(a))
         clean_temp()
 
     def clean_temp(path="./temp"):
