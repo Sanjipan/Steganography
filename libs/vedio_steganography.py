@@ -7,7 +7,7 @@ import cv2
 from stegano import lsb
 
 
-def Video_Steganography(file):
+def Video_Steganography(file, n):
     def split_string(split_str, count=10):
         per_c = math.ceil(len(split_str) / count)
         c_cout = 0
@@ -47,8 +47,8 @@ def Video_Steganography(file):
             print("[INFO] frame {} holds {}".format(f_name, lsb.reveal(f_name)))
         print("The message is stored in the Embedded_Video.mp4 file")
 
-    def Decode(video):
-        frame_extraction(video)
+    def Decode():
+        frame_extraction(file)
         secret = []
         root = "./temp/"
         a = ''
@@ -56,7 +56,7 @@ def Video_Steganography(file):
             for i in range(0, len(os.listdir(root)) - 1):
                 f_name = "{}{}.png".format(str(root), str(i))
                 secret_dec = lsb.reveal(f_name)
-                if secret_dec == None:
+                if secret_dec is None:
                     break
                 secret.append(secret_dec)
         except IndexError as e:
@@ -70,16 +70,24 @@ def Video_Steganography(file):
             shutil.rmtree(path)
             print("[INFO] temp files are cleaned up")
 
-    def Encode(f_name):
+    def Encode():
         input_string = input("Enter the message :")
-        frame_extraction(f_name)
-        call(["ffmpeg", "-i", f_name, "-q:a", "0", "-map", "a", "temp/audio.mp3", "-y"], stdout=open(os.devnull, "w"),
+        frame_extraction(file)
+        call(["ffmpeg", "-i", file, "-q:a", "0", "-map", "a", "temp/audio.mp3", "-y"], stdout=open(os.devnull, "w"),
              stderr=STDOUT)
         encode_string(input_string)
         call(["ffmpeg", "-i", "temp/%d.png", "-vcodec", "png", "temp/Embedded_Video.mp4", "-y"],
              stdout=open(os.devnull, "w"), stderr=STDOUT)
         call(["ffmpeg", "-i", "temp/Embedded_Video.mp4", "-i", "temp/audio.mp3", "-codec", "copy", "Embedded_Video.mp4",
               "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
+
+        f = file.split("/")
+        a = ''
+        for i in range(1, len(f) - 1):
+            a = a + '/' + f[i]
+        a = a + "/" + 'Embedded_Video.mp4'
+        os.remove(file)
+        os.rename(a, file)
         clean_temp()
 
     while True:
@@ -87,9 +95,8 @@ def Video_Steganography(file):
         print("Any other value to exit\n")
         choice = input("Enter your choice :")
         if choice == '1':
-            f_name = input("Enter the name of video file with extension:")
-            Encode(f_name)
+            Encode()
         elif choice == '2':
-            Decode(input("Enter the name of video with extension :"))
+            Decode()
         else:
             break
