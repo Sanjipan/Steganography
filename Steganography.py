@@ -21,28 +21,29 @@ use_image_decode = "python3 ./Steganography.py -i -d <location of file>"
 use_help = "python3 ./Steganography.py -h -----> help"
 
 
+def symbols():
+    print("=" * 85)
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣿⣿⣾⣿⣿⣷⣄⣀⣯⣯⣳⣄⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠑⠲⢦⣤⣈⡛⠿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⣿⣿⣧⠀⠀")
+    print("⠀⠀⠀⠀⠀⠐⠢⣤⣄⣈⠙⠿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣷⣶⣿⣿⣿⡆⠀_⠀                             _")
+    print("⠀⠀⠀⠀⠐⠠⢤⣄⣉⣛⠿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿(⠀)        _                   (_ )")
+    print("⠀⠀⠀⠀⠲⢤⣤⣈⡙⠻⢿⣿⣿⠿⠿⠛⠛⠉⠉⠀⠀⠀⠀⠉___|⠀|__    /'_`\   ___ ___    __  | |   __    _    ___")
+    print("⠀⠀⠀⠢⢤⣀⣈⠙⠿⣿⣷⠋⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀/'___|⠀⠀_ `\/'/'_` )/' _ ` _ `\/'__`\| | /'__`\/'_`\/' _ `\ ")
+    print("⠀⠀⠀⢤⣀⡉⠛⠿⣷⣶⠃⢠⣶⣿⣿⠿⠿⣿⣿⣷⣄(⠀(___|⠀| | ( ( (_| || ( ) ( ) (  ___/| |(  ___( (_) | ( ) |")
+    print("⠀⠀⠀⢀⣈⠙⠻⢶⣾⡅⠀⣾⣿⠋⠀⠀⢤⣄⠉⢿⣿`\____(_) (_)\ `\__,_(_) (_) (_`\____(___`\____`\___/(_) (_)")
+    print("⠀⠀⠀⠈⠙⠻⣿⣶⣾⡅⠀⣿⣿⡀⠀⠀⠀⣻⡇⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀     `\_____)")
+    print("⠀⠀⠀⠀⠻⣷⣶⣯⣿⣷⡀⠘⢿⣿⣶⣶⣾⣿⠇⣸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣦⣀⠉⠙⠛⠉⢁⣴⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⣿⣿⣿⣿⣷⣶⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("=" * 85)
+    print("[Ch@meleon STARTED]")
+    print("=" * 85)
+
+
 def main():
-    # file = input("ENTER FILE NAME")
-    # while True:
-    #     print("MAIN MENU")
-    #     print("1. IMAGE STEGANOGRAPHY {Hiding Text in Image cover file}")
-    #     print("2. TEXT STEGANOGRAPHY {Hiding Text in Text cover file}")
-    #     print("3. AUDIO STEGANOGRAPHY {Hiding Text in Audio cover file}")
-    #     print("4. VIDEO STEGANOGRAPHY {Hiding Text in Video cover file}")
-    #     print("5. Exit")
-    #     n = int(input("Enter Your Choice:"))
-    #     if n == 1:
-    #         image_steganography.image_Stegonography(file)
-    #     elif n == 2:
-    #         text_steganography.text_steganography()
-    #     elif n == 3:
-    #         audio_steganography.audio_steganography()
-    #     elif n == 4:
-    #         vedio_steganography.vedio_steganography(file)
-    #     elif n == 5:
-    #         break
-    #     else:
-    #         print("Invalid Input")
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--audio', action='store_true', help="For audio file")
     parser.add_argument('-t', '--text', action='store_true', help="For text file")
@@ -55,6 +56,7 @@ def main():
     c = 0
     t = True
     if args.filename:
+        symbols()
         if args.audio and args.encode and t:
             audio_steganography.audio_steganography(args.filename, 0)
             t = False
@@ -82,9 +84,11 @@ def main():
         else:
             c = 1
     else:
+        symbols()
         parser.print_help()
         sys.exit(0)
     if c == 1:
+        symbols()
         parser.print_help()
         sys.exit()
 
