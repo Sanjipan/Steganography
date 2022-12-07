@@ -90,13 +90,7 @@ def Video_Steganography(file, n):
         os.rename(a, file)
         clean_temp()
 
-    while True:
-        print("1.Hide a message in video\n2.Reveal the secret from the video\n")
-        print("Any other value to exit\n")
-        choice = input("Enter your choice :")
-        if choice == '1':
-            Encode()
-        elif choice == '2':
-            Decode()
-        else:
-            break
+    if n == 0:
+        Encode()
+    else:
+        Decode()
