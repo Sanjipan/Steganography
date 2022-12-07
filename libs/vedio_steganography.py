@@ -79,14 +79,8 @@ def Video_Steganography(file, n):
              stdout=open(os.devnull, "w"), stderr=STDOUT)
         call(["ffmpeg", "-i", "temp/Embedded_Video.mp4", "-i", "temp/audio.mp3", "-codec", "copy", "Embedded_Video.mp4",
               "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
-
-        f = file.split("/")
-        a = ''
-        for i in range(1, len(f) - 1):
-            a = a + '/' + f[i]
-        a = a + "/" + 'Embedded_Video.mp4'
         os.remove(file)
-        os.rename(a, file)
+        os.rename("Embedded_Video.mp4", file)
         clean_temp()
 
     if n == 0:
