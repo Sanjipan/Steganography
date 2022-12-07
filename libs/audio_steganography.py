@@ -6,7 +6,7 @@ import os
 import wave
 
 
-def audio_steganography(file, n):
+def Audio_steganography(file, n):
     def Encode():
         print("[INFO] Audio Steganography ENCODING")
         print("")

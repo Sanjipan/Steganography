@@ -5,7 +5,7 @@
 import os
 
 
-def text_steganography(file):
+def Text_steganography(file):
     def EncodeTheText(text):
         i = 0
         add = ''
