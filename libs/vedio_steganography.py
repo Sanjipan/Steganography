@@ -1,4 +1,3 @@
-# Importing requiered modules
 import math
 import os
 import shutil
