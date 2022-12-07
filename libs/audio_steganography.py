@@ -8,18 +8,20 @@ import wave
 
 def audio_steganography(file, n):
     def Encode():
+        print("[INFO] Audio Steganography ENCODING")
+        print("")
         song = wave.open(file, mode='rb')
         nframes = song.getnframes()
         frames = song.readframes(nframes)
         frame_list = list(frames)
         frame_byte = bytearray(frame_list)
 
-        data = input("Enter the secret message:-")
+        data = input("[*] Enter the secret message:-")
 
         res = ''.join(format(i, '08b') for i in bytearray(data, encoding='utf-8'))
-        print("The String after binary conversion:-{}".format(res))
+        print("[INFO] The String after binary conversion:-{}".format(res))
         length = len(res)
-        print("Length of binary after conversion:-{}".format(length))
+        print("[INFO] Length of binary after conversion:-{}".format(length))
 
         data = data + '*^*^*'
 
@@ -42,11 +44,14 @@ def audio_steganography(file, n):
         with wave.open(file, 'wb') as fd:
             fd.setparams(song.getparams())
             fd.writeframes(frame_modified)
-        print("ENCODING DATA Sucessfull")
-        print("LOCATION:{}".format(file))
+        print("[INFO] ENCODING DATA Sucessfull")
+        print("[INFO] LOCATION:{}".format(file))
         song.close()
+        print("=" * 85)
 
     def Decode():
+        print("[INFO] Audio Steganography DECODING")
+        print("")
         song = wave.open(file, mode='rb')
         nframes = song.getnframes()
         frames = song.readframes(nframes)
@@ -69,9 +74,10 @@ def audio_steganography(file, n):
             for byte in all_bytes:
                 decode_data += chr(int(byte, 2))
                 if decode_data[-5:] == '*^*^*':
-                    print("The Encoded data was:", decode_data[:-5])
+                    print("[*] The Encoded data was:", decode_data[:-5])
                     p = 1
                     break
+        print("=" * 85)
 
     if n == 0:
         Encode()

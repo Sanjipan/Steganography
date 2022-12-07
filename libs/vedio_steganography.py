@@ -44,9 +44,11 @@ def Video_Steganography(file, n):
             secret_enc = lsb.hide(f_name, split_string_list[i])
             secret_enc.save(f_name)
             print("[INFO] frame {} holds {}".format(f_name, lsb.reveal(f_name)))
-        print("The message is stored in the Embedded_Video.mp4 file")
+        print("[INFO] The message is stored in the Embedded_Video.mp4 file")
 
     def Decode():
+        print("[INFO] Video Steganography DECODING")
+        print("")
         frame_extraction(file)
         secret = []
         root = "./temp/"
@@ -61,8 +63,9 @@ def Video_Steganography(file, n):
         except IndexError as e:
             print("[Done]")
         a = a.join([i for i in secret])
-        print("Your Secret Message:{}".format(a))
+        print("[*] The Encoded data was:{}".format(a))
         clean_temp()
+        print("="*85)
 
     def clean_temp(path="./temp"):
         if os.path.exists(path):
@@ -70,7 +73,9 @@ def Video_Steganography(file, n):
             print("[INFO] temp files are cleaned up")
 
     def Encode():
-        input_string = input("Enter the message :")
+        print("[INFO] Video Steganography ENCODING")
+        print("")
+        input_string = input("[*] Enter the message :")
         frame_extraction(file)
         call(["ffmpeg", "-i", file, "-q:a", "0", "-map", "a", "temp/audio.mp3", "-y"], stdout=open(os.devnull, "w"),
              stderr=STDOUT)
@@ -82,6 +87,7 @@ def Video_Steganography(file, n):
         os.remove(file)
         os.rename("Embedded_Video.mp4", file)
         clean_temp()
+        print("=" * 85)
 
     if n == 0:
         Encode()
