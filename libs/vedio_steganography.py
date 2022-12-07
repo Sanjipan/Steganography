@@ -64,6 +64,7 @@ def Video_Steganography(file, n):
             print('')
         a = a.join([i for i in secret])
         print("[*] The Encoded data was:{}".format(a))
+        print("")
         clean_temp()
         print("="*100)
 
@@ -87,6 +88,7 @@ def Video_Steganography(file, n):
         os.remove(file)
         os.rename("Embedded_Video.mp4", file)
         clean_temp()
+        print("[INFO] FILE LOCATION:{}".format(file))
         print("=" * 100)
 
     if n == 0:
