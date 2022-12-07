@@ -22,7 +22,7 @@ use_help = "python3 ./Steganography.py -h -----> help"
 
 
 def symbols():
-    print("=" * 85)
+    print("=" * 100)
     print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
     print("⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣿⣿⣾⣿⣿⣷⣄⣀⣯⣯⣳⣄⠀⠀⠀⠀⠀")
     print("⠀⠀⠀⠀⠀⠀⠀⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀")
@@ -38,9 +38,9 @@ def symbols():
     print("⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣦⣀⠉⠙⠛⠉⢁⣴⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀")
     print("⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⣿⣿⣿⣿⣷⣶⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀")
     print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
-    print("=" * 85)
-    print("[Ch@meleon STARTED]")
-    print("=" * 85)
+    print("=" * 100)
+    print("Ch@meleon STARTED")
+    print("=" * 100)
 
 
 def main():

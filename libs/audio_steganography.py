@@ -47,7 +47,7 @@ def audio_steganography(file, n):
         print("[INFO] ENCODING DATA Sucessfull")
         print("[INFO] LOCATION:{}".format(file))
         song.close()
-        print("=" * 85)
+        print("=" * 100)
 
     def Decode():
         print("[INFO] Audio Steganography DECODING")
@@ -77,7 +77,7 @@ def audio_steganography(file, n):
                     print("[*] The Encoded data was:", decode_data[:-5])
                     p = 1
                     break
-        print("=" * 85)
+        print("=" * 100)
 
     if n == 0:
         Encode()

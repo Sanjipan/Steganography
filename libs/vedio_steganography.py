@@ -61,11 +61,11 @@ def Video_Steganography(file, n):
                     break
                 secret.append(secret_dec)
         except IndexError as e:
-            print("[Done]")
+            print('')
         a = a.join([i for i in secret])
         print("[*] The Encoded data was:{}".format(a))
         clean_temp()
-        print("="*85)
+        print("="*100)
 
     def clean_temp(path="./temp"):
         if os.path.exists(path):
@@ -87,7 +87,7 @@ def Video_Steganography(file, n):
         os.remove(file)
         os.rename("Embedded_Video.mp4", file)
         clean_temp()
-        print("=" * 85)
+        print("=" * 100)
 
     if n == 0:
         Encode()
