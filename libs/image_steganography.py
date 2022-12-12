@@ -1,171 +1,98 @@
-# Importing the necessary modules
-from tkinter import *
-from tkinter import messagebox as mb
+import os
+import cv2
+import numpy as np
 from PIL import Image
 
-# Creating the basic Python Image Steganography functions
-def generate_data(pixels, data):
-    # This function will convert the incoming data to 8-bit binary format using its ASCII values and return them
-    data_in_binary = []
 
-    for i in data:
-        binary_data = format(ord(i), '08b')
-        data_in_binary.append(binary_data)
+def Image_steganography(file, n):
+    # it converts data in binary format
 
-    length_of_data = len(data_in_binary)
-    image_data = iter(pixels)
+    def data2binary(data):
+        p = ''
+        if type(data) == str:
+            p = p.join([format(ord(i), '08b') for i in data])
+        elif type(data) == bytes or type(data) == np.ndarray:
+            p = [format(i, '08b') for i in data]
+        return p
 
-    for a in range(length_of_data):
-        pixels = [val for val in image_data._next()[:3] + image_data.next()[:3] + image_data.next_()[:3]]
+    # hide data in given img
 
-        for b in range(8):
-            if (data_in_binary[a][b] == '1') and (pixels[b] % 2 != 0):
-                pixels[b] -= 1
-            elif (data_in_binary[a][b] == '0') and (pixels[b] % 2 == 0):
-                if pixels[b] == 0:
-                    pixels[b] += 1
-                pixels[b] -= 1
+    def hide_data(img, data):
+        data += "$$"  # '$$'--> secrete key
+        d_index = 0
+        b_data = data2binary(data)
+        len_data = len(b_data)
 
-        if (length_of_data-1) == a:
-            if pixels[-1] % 2 == 0:
-                if pixels[-1] == 0:
-                    pixels[-1] += 1
-                else:
-                    pixels[-1] -= 1
+        # iterate pixels from image and update pixel values
 
-        pixels = tuple(pixels)
+        for value in img:
+            for pix in value:
+                r, g, b = data2binary(pix)
+                if d_index < len_data:
+                    pix[0] = int(r[:-1] + b_data[d_index])
+                    d_index += 1
+                if d_index < len_data:
+                    pix[1] = int(g[:-1] + b_data[d_index])
+                    d_index += 1
+                if d_index < len_data:
+                    pix[2] = int(b[:-1] + b_data[d_index])
+                    d_index += 1
+                if d_index >= len_data:
+                    break
+        return img
 
-        yield pixels[:3]
-        yield pixels[3:6]
-        yield pixels[6:9]
+    def Encode():
 
-
-def encryption(img, data):
-    # This method will encode data to the new image that will be created
-    size = img.size[0]
-    (x, y) = (0, 0)
-
-    for pixel in generate_data(img.getdata(), data):
-        img.putpixel((x, y), pixel)
-        if size-1 == x:
-            x = 0; y += 1
+        image = cv2.imread(file)
+        img = Image.open(file, 'r')
+        w, h = img.size
+        data = input("enter message:")
+        if len(data) == 0:
+            raise ValueError("Empty data")
+        enc_img = 'temp.png'
+        enc_data = hide_data(image, data)
+        cv2.imwrite(enc_img, enc_data)
+        img1 = Image.open(enc_img, 'r')
+        img1 = img1.resize((w, h), Image.Resampling.LANCZOS)
+        # optimize with 65% quality
+        if w != h:
+            img1.save(enc_img, optimize=True, quality=65)
         else:
-            x += 1
+            img1.save(enc_img)
+        img.close()
+        img1.close()
+        os.remove(file)
+        os.rename(enc_img, file)
 
+    # decoding
 
-def main_encryption(img, text, new_image_name):
-    # This function will take the arguments, create a new image, encode it and save it to the same directory
-    image = Image.open(img, 'r')
+    def find_data(img):
+        bin_data = ""
+        for value in img:
+            for pix in value:
+                r, g, b = data2binary(pix)
+                bin_data += r[-1]
+                bin_data += g[-1]
+                bin_data += b[-1]
 
-    if (len(text) == 0) or (len(img) == 0) or (len(new_image_name) == 0):
-        mb.showerror("Error", 'You have not put a value! Please put all values before pressing the button')
+        all_bytes = [bin_data[i: i + 8] for i in range(0, len(bin_data), 8)]
 
-    new_image = image.copy()
-    encryption(new_image, text)
+        readable_data = ""
+        for i in all_bytes:
+            readable_data += chr(int(i, 2))
+            if readable_data[-2:] == "$$":
+                break
+        return readable_data[:-2]
 
-    new_image_name += '.png'
+    def Decode():
 
-    new_image.save(new_image_name, 'png')
+        image = cv2.imread(file)
+        img = Image.open(file, 'r')
+        msg = find_data(image)
+        img.close()
+        return msg
 
-
-def main_decryption(img, strvar):
-    # This function will decode the image given to it and extract the hidden message from it
-    image = Image.open(img, 'r')
-
-    data = ''
-    image_data = iter(image.getdata())
-
-    decoding = True
-
-    while decoding:
-        pixels = [value for value in image_data._next()[:3] + image_data.next()[:3] + image_data.next_()[:3]]
-
-        # string of binary data
-        binary_string = ''
-
-        for i in pixels[:8]:
-            if i % 2 == 0:
-                binary_string += '0'
-            else:
-                binary_string += '1'
-
-        data += chr(int(binary_string, 2))
-        if pixels[-1] % 2 != 0:
-            strvar.set(data)
-
-
-# Creating the button functions
-def encode_image():
-    encode_wn = Toplevel(root)
-    encode_wn.title("Encode an Image")
-    encode_wn.geometry('600x220')
-    encode_wn.resizable(0, 0)
-    encode_wn.config(bg='AntiqueWhite')
-    Label(encode_wn, text='Encode an Image', font=("Comic Sans MS", 15), bg='AntiqueWhite').place(x=220, rely=0)
-
-    Label(encode_wn, text='Enter the path to the image(with extension):', font=("Times New Roman", 13),
-        bg='AntiqueWhite').place(x=10, y=50)
-    Label(encode_wn, text='Enter the data to be encoded:', font=("Times New Roman", 13), bg='AntiqueWhite').place(
-        x=10, y=90)
-    Label(encode_wn, text='Enter the output file name (without extension):', font=("Times New Roman", 13),
-        bg='AntiqueWhite').place(x=10, y=130)
-
-    img_path = Entry(encode_wn, width=35)
-    img_path.place(x=350, y=50)
-
-    text_to_be_encoded = Entry(encode_wn, width=35)
-    text_to_be_encoded.place(x=350, y=90)
-
-    after_save_path = Entry(encode_wn, width=35)
-    after_save_path.place(x=350, y=130)
-
-    Button(encode_wn, text='Encode the Image', font=('Helvetica', 12), bg='PaleTurquoise', command=lambda:
-    main_encryption(img_path.get(), text_to_be_encoded.get(), after_save_path.get())).place(x=220, y=175)
-
-
-def decode_image():
-    decode_wn = Toplevel(root)
-    decode_wn.title("Decode an Image")
-    decode_wn.geometry('600x300')
-    decode_wn.resizable(0, 0)
-    decode_wn.config(bg='Bisque')
-
-    Label(decode_wn, text='Decode an Image', font=("Comic Sans MS", 15), bg='Bisque').place(x=220, rely=0)
-
-    Label(decode_wn, text='Enter the path to the image (with extension):', font=("Times New Roman", 12),
-        bg='Bisque').place(x=10, y=50)
-
-    img_entry = Entry(decode_wn, width=35)
-    img_entry.place(x=350, y=50)
-
-    text_strvar = StringVar()
-
-    Button(decode_wn, text='Decode the Image', font=('Helvetica', 12), bg='PaleTurquoise', command=lambda:
-    main_decryption(img_entry.get(), text_strvar)).place(x=220, y=90)
-
-    Label(decode_wn, text='Text that has been encoded in the image:', font=("Times New Roman", 12), bg='Bisque').place(
-        x=180, y=130)
-
-    text_entry = Entry(decode_wn, width=94, text=text_strvar, state='disabled')
-    text_entry.place(x=15, y=160, height=100)
-
-
-# Initializing the window
-root = Tk()
-root.title('ProjectGurukul Image Steganography')
-root.geometry('300x200')
-root.resizable(0, 0)
-root.config(bg='NavajoWhite')
-
-Label(root, text='ProjectGurukul Image Steganography', font=('Comic Sans MS', 15), bg='NavajoWhite',
-    wraplength=300).place(x=40, y=0)
-
-Button(root, text='Encode', width=25, font=('Times New Roman', 13), bg='SteelBlue', command=encode_image).place(
-    x=30, y=80)
-
-Button(root, text='Decode', width=25, font=('Times New Roman', 13), bg='SteelBlue', command=decode_image).place(
-    x=30, y=130)
-
-# Finalizing the window
-root.update()
-root.mainloop()
+    if n == 0:
+        Encode()
+    else:
+        Decode()
