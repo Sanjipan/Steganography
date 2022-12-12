@@ -2,7 +2,7 @@ import sys
 import argparse
 
 from libs import audio_steganography
-# from libs import image_steganography
+from libs import image_steganography
 # from libs import text_steganography
 from libs import video_steganography
 
@@ -76,10 +76,10 @@ def main():
             video_steganography.Video_Steganography(args.filename, 1)
             t = False
         elif args.image and args.encode and t:
-            print("Encode image")
+            image_steganography.Image_steganography(args.filename, 0)
             t = False
         elif args.image and args.decode and t:
-            print("Decode image")
+            image_steganography.Image_steganography(args.filename, 1)
             t = False
         else:
             c = 1
