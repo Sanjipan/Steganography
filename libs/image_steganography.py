@@ -90,7 +90,7 @@ def Image_steganography(file, n):
         img = Image.open(file, 'r')
         msg = find_data(image)
         img.close()
-        return msg
+        print(msg)
 
     if n == 0:
         Encode()
