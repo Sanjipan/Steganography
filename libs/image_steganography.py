@@ -43,12 +43,14 @@ def Image_steganography(file, n):
 
     def Encode():
 
+        print("[INFO] Image Steganography ENCODING")
+        print("")
         image = cv2.imread(file)
         img = Image.open(file, 'r')
         w, h = img.size
-        data = input("enter message:")
+        data = input("[*] Enter the secret message:- ")
         if len(data) == 0:
-            raise ValueError("Empty data")
+            raise ValueError("[INFO] Empty data")
         enc_img = 'temp.png'
         enc_data = hide_data(image, data)
         cv2.imwrite(enc_img, enc_data)
@@ -63,6 +65,9 @@ def Image_steganography(file, n):
         img1.close()
         os.remove(file)
         os.rename(enc_img, file)
+        print("[INFO] ENCODING DATA Sucessfull")
+        print("[INFO] LOCATION:{}".format(file))
+        print("=" * 100)
 
     # decoding
 
@@ -86,11 +91,14 @@ def Image_steganography(file, n):
 
     def Decode():
 
+        print("[INFO] Image Steganography DECODING")
+        print("")
         image = cv2.imread(file)
         img = Image.open(file, 'r')
         msg = find_data(image)
         img.close()
-        return msg
+        print("[*] The Encoded data was: {}".format(msg))
+        print("=" * 100)
 
     if n == 0:
         Encode()
