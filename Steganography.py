@@ -12,8 +12,8 @@ use_text_decode = "python3 ./Steganography.py -t -d <location of file>"
 use_audio_encode = "python3 ./Steganography.py -a -e <location of file>"
 use_audio_decode = "python3 ./Steganography.py -a -d <location of file>"
 
-use_vedio_encode = "python3 ./Steganography.py -v -e <location of file>"
-use_vedio_decode = "python3 ./Steganography.py -v -d <location of file>"
+use_video_encode = "python3 ./Steganography.py -v -e <location of file>"
+use_video_decode = "python3 ./Steganography.py -v -d <location of file>"
 
 use_image_encode = "python3 ./Steganography.py -i -e <location of file>"
 use_image_decode = "python3 ./Steganography.py -i -d <location of file>"
@@ -47,7 +47,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--audio', action='store_true', help="For audio file")
     parser.add_argument('-t', '--text', action='store_true', help="For text file")
-    parser.add_argument('-v', '--vedio', action='store_true', help="For vedio file")
+    parser.add_argument('-v', '--video', action='store_true', help="For video file")
     parser.add_argument('-i', '--image', action='store_true', help="For image file")
     parser.add_argument('-e', '--encode', action='store_true', help="For encoding")
     parser.add_argument('-d', '--decode', action='store_true', help="For decoding")
