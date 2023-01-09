@@ -9,11 +9,30 @@
     LINUX
 This program is made and designed for **Linux Opearing System** ***only***.
 
+## Installation
+
+Install my-project with npm
+
+```console
+kali@kali:~$ git clone https://github.com/Sanjipan/Steganography
+```
+
+Install Python Libraries :
+```console
+kali@kali:~$ pip install argparse
+kali@kali:~$ pip install Wave
+kali@kali:~$ pip install opencv-python
+kali@kali:~$ pip install numpy
+kali@kali:~$ pip install Pillow
+kali@kali:~$ pip install pytest-shutil
+kali@kali:~$ pip install subprocess.run
+kali@kali:~$ pip install stegano
+```
+    
 ## How To Use?
 
 **To *Use the Code*** :
 ```console
-kali@kali:~$ git clone https://github.com/Sanjipan/Steganography
 kali@kali:~$ cd Steganography
 kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File Location>
 ```
@@ -62,7 +81,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 kali@kali:~$ Sudo python3 ./Steganography.py -h
 kali@kali:~$ Sudo python3 ./Steganography.py -help
 ```
-## Demo :
+## Demo
 ```console
 ┌──(kali㉿kali)-[~/Desktop]
 └─$ cd Steganography
