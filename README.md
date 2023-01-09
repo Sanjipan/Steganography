@@ -62,7 +62,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py -h
 kali@kali:~$ Sudo python3 ./Steganography.py -help
 ```
 ## Demo
-```bash
+```console
 ┌──(kali㉿kali)-[~/Desktop]
 └─$ cd Steganography
                                                                                                         
