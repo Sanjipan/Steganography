@@ -108,6 +108,4 @@ The application must be used for **"EDUCATIONAL PURPOSES ONLY"**
 ###### **ABANTEEKA ACHARYA** :
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abanteeka-acharya-1867ab225/)
 ###### **PRIYANSHI PANCHAL** :
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]()
-
-
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/priyanshi-panchal-25069022a/)
