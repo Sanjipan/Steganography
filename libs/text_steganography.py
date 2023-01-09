@@ -5,7 +5,7 @@
 import os
 
 
-def Text_steganography(file):
+def Text_steganography(file, n):
     def EncodeTheText(text):
         i = 0
         add = ''
@@ -23,8 +23,8 @@ def Text_steganography(file):
                 add = add + "0110" + res
             i = i + 1
         res1 = add + "111111111111"
-        print("The String after binary conversion appling all the transformation:-{}".format(res1))
-        print("Length of binary after Conersion:-{}".format(len(res1)))
+        print("[INFO] The String after binary conversion:-{}".format(res1))
+        print("[INFO] Length of binary after conversion:-{}".format(len(res1)))
         ZWC = {"00": u'\u200C', "01": u'\u202C', "11": u'\u202D', "10": u'\u200E'}
         file1 = open(file, 'r+')
         f = file.split("/")
@@ -60,9 +60,13 @@ def Text_steganography(file):
         file1.close()
         os.remove(file)
         os.rename(a, file)
-        print("Stego file has successfully generated")
+        print("[INFO] ENCODING DATA Sucessfull")
+        print("[INFO] LOCATION:{}".format(file))
+        print("=" * 100)
 
     def Encode():
+        print("[INFO] Text Steganography ENCODING")
+        print("")
         count2 = 0
         file1 = open(file, 'r')
         for line in file1:
@@ -71,9 +75,9 @@ def Text_steganography(file):
         file1.close()
         bt = int(count2)
         print("Maximum number of words that can be inserted:- {}".format(int(bt/6)))
-        text1 = input("Enter data to be encoded:")
+        text1 = input("[*] Enter the secret message:-")
         if len(text1) > bt:
-            print("String is too big please reduce string size")
+            print("[!] String is too big please reduce string size")
             Encode()
         else:
             EncodeTheText(text1)
@@ -83,6 +87,7 @@ def Text_steganography(file):
         return string
 
     def Decode():
+        print("[INFO] Text Steganography DECODING")
         ZWC_reverse = {u"\u200C": "00", u'\u202C': "01", u'\u202D': "11", u'\u200E': "10"}
         file4 = open(file, 'r', encoding="utf-8")
         temp = ''
@@ -97,8 +102,8 @@ def Text_steganography(file):
                         break
                     else:
                         temp = temp + binary_extract
-        print("Encrypted message presented in code bits: {}".format(temp))
-        print("Length of encoded bits:- ".format(len(temp)))
+        print("[INFO] Encrypted message present in code bits: {}".format(temp))
+        print("[INFO] Length of encoded bits:- ".format(len(temp)))
         i = 0
         a = 0
         b = 4
@@ -123,19 +128,10 @@ def Text_steganography(file):
                     temp_data = t4[i:i + 8]
                     decimal_data = BinaryToDecimal(temp_data)
                     final = final + chr((decimal_data ^ 170) - 48)
-        print("Message after decoding from the stego file:- {}".format(final))
+        print("[*] The Encoded data was:- {}".format(final))
+        print("=" * 100)
 
-    while True:
-        print("TEXT STEGANOGRAPHY OPERATIONS")
-        print("1. Encode the Text message")
-        print("2. Decode the Text message")
-        print("3. Exit")
-        n = int(input("Enter Your Choice: "))
-        if n == 1:
-            Encode()
-        elif n == 2:
-            Decode()
-        elif n == 3:
-            break
-        else:
-            print("INVALID CHOICE")
+    if n == 0:
+        Encode()
+    else:
+        Decode()
