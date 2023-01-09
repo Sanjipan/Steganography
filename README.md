@@ -21,7 +21,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 **-> For *Audio Cover* File** :
 ```bash
 # Encoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -a -e <location of file>
+kali@kali:~$ Sudo python3 ./Steganography.py -a -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --audio --encode <location of file>
 # Decoding
     kali@kali:~$ Sudo python3 ./Steganography.py -a -d <location of file>
