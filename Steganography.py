@@ -3,7 +3,7 @@ import argparse
 
 from libs import audio_steganography
 from libs import image_steganography
-# from libs import text_steganography
+from libs import text_steganography
 from libs import video_steganography
 
 use_text_encode = "python3 ./Steganography.py -t -e <location of file>"
@@ -64,10 +64,10 @@ def main():
             audio_steganography.Audio_steganography(args.filename, 1)
             t = False
         elif args.text and args.encode and t:
-            print("Encode text")
+            text_steganography.Text_steganography(args.filename, 0)
             t = False
         elif args.text and args.decode and t:
-            print("Decode text")
+            text_steganography.Text_steganography(args.filename, 1)
             t = False
         elif args.vedio and args.encode and t:
             video_steganography.Video_Steganography(args.filename, 0)
