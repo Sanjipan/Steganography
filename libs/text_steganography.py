@@ -60,7 +60,7 @@ def Text_steganography(file, n):
         file1.close()
         os.remove(file)
         os.rename(a, file)
-        print("[INFO] ENCODING DATA Sucessfull")
+        print("[INFO] ENCODING DATA Successful")
         print("[INFO] LOCATION:{}".format(file))
         print("=" * 100)
 

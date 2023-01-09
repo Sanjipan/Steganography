@@ -65,7 +65,7 @@ def Image_steganography(file, n):
         img1.close()
         os.remove(file)
         os.rename(enc_img, file)
-        print("[INFO] ENCODING DATA Sucessfull")
+        print("[INFO] ENCODING DATA Successful")
         print("[INFO] LOCATION:{}".format(file))
         print("=" * 100)
 

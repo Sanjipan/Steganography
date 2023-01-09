@@ -44,7 +44,7 @@ def Audio_steganography(file, n):
         with wave.open(file, 'wb') as fd:
             fd.setparams(song.getparams())
             fd.writeframes(frame_modified)
-        print("[INFO] ENCODING DATA Sucessfull")
+        print("[INFO] ENCODING DATA Successful")
         print("[INFO] LOCATION:{}".format(file))
         song.close()
         print("=" * 100)
@@ -83,4 +83,3 @@ def Audio_steganography(file, n):
         Encode()
     else:
         Decode()
-
