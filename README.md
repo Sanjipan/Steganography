@@ -18,7 +18,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 ```
 
 **-> For *Audio Cover* File** :
-```bash
+```console
 # Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -a -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --audio --encode <location of file>
@@ -28,7 +28,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 ```
 
 **-> For *Video Cover* File** :
-```bash
+```console
 # Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -v -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --video --encode <location of file>
@@ -38,7 +38,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 ```
 
 **-> For *Image Cover* File** :
-```bash
+```console
 # Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -i -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --image --encode <location of file>
@@ -48,7 +48,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 ```
 
 **-> For *Text Cover* File** :
-```bash
+```console
 # Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -t -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --text --encode <location of file>
@@ -57,7 +57,7 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
     kali@kali:~$ Sudo python3 ./Steganography.py --text --decode <location of file>
 ```
 **For HELP** :
-```bash
+```console
 kali@kali:~$ Sudo python3 ./Steganography.py -h
 kali@kali:~$ Sudo python3 ./Steganography.py -help
 ```
