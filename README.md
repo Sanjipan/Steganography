@@ -103,11 +103,11 @@ The application must be used for **"EDUCATIONAL PURPOSES ONLY"**
 
 
 ### *Contect Us On:*
-**SANJIPAN DEB** :
+###### **SANJIPAN DEB** :
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sanjipan-deb-834601220/)
-**ABANTEEKA ACHARYA** :
+###### **ABANTEEKA ACHARYA** :
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abanteeka-acharya-1867ab225/)
-**PRIYANSHI PANCHAL** :
+###### **PRIYANSHI PANCHAL** :
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]()
 
 
