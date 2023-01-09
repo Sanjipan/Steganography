@@ -62,8 +62,78 @@ kali@kali:~$ Sudo python3 ./Steganography.py -h
 kali@kali:~$ Sudo python3 ./Steganography.py -help
 ```
 ## Demo
+```bash
+┌──(kali㉿kali)-[~/Desktop]
+└─$ cd Steganography
+                                                                                                        
+┌──(kali㉿kali)-[~/Desktop/Steganography]
+└─$ ls      
+libs  Steganography.py
+                                                                                                        
+┌──(kali㉿kali)-[~/Desktop/Steganography]
+└─$ sudo python3 ./Steganography.py -v -e /home/kali/Desktop/Test/test.mp4
+[sudo] password for kali: 
+====================================================================================================
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣿⣿⣾⣿⣿⣷⣄⣀⣯⣯⣳⣄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠑⠲⢦⣤⣈⡛⠿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⣿⣿⣧⠀⠀
+⠀⠀⠀⠀⠀⠐⠢⣤⣄⣈⠙⠿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣷⣶⣿⣿⣿⡆⠀_⠀                             _
+⠀⠀⠀⠀⠐⠠⢤⣄⣉⣛⠿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿(⠀)        _                   (_ )
+⠀⠀⠀⠀⠲⢤⣤⣈⡙⠻⢿⣿⣿⠿⠿⠛⠛⠉⠉⠀⠀⠀⠀⠉___|⠀|__    /'_`\   ___ ___    __  | |   __    _    ___
+⠀⠀⠀⠢⢤⣀⣈⠙⠿⣿⣷⠋⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀/'___|⠀⠀_ `\/'/'_` )/' _ ` _ `\/'__`\| | /'__`\/'_`\/' _ `\ 
+⠀⠀⠀⢤⣀⡉⠛⠿⣷⣶⠃⢠⣶⣿⣿⠿⠿⣿⣿⣷⣄(⠀(___|⠀| | ( ( (_| || ( ) ( ) (  ___/| |(  ___( (_) | ( ) |
+⠀⠀⠀⢀⣈⠙⠻⢶⣾⡅⠀⣾⣿⠋⠀⠀⢤⣄⠉⢿⣿`\____(_) (_)\ `\__,_(_) (_) (_`\____(___`\____`\___/(_) (_)
+⠀⠀⠀⠈⠙⠻⣿⣶⣾⡅⠀⣿⣿⡀⠀⠀⠀⣻⡇⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀     `\_____)
+⠀⠀⠀⠀⠻⣷⣶⣯⣿⣷⡀⠘⢿⣿⣶⣶⣾⣿⠇⣸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣦⣀⠉⠙⠛⠉⢁⣴⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⣿⣿⣿⣿⣷⣶⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+====================================================================================================
+Ch@meleon STARTED
+====================================================================================================
+[INFO] Video Steganography ENCODING
 
-Insert gif or link to demo
+[*] Enter the message :hii
+[INFO] temp directory is created
+[INFO] frame ./temp/0.png holds h
+[INFO] frame ./temp/1.png holds i                                                                                                                                                                                                           
+[INFO] frame ./temp/2.png holds i                                                                                                                                                                                                           
+[INFO] The message is stored in the Embedded_Video.mp4 file                                                                                                                                                                                 
+[INFO] temp files are cleaned up                                                                                                                                                                                                            
+[INFO] FILE LOCATION:/home/kali/Desktop/Test/test.mp4                                                                                                                                                                                       
+====================================================================================================                                                                                                                                        
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Desktop/Steganography]
+└─$ sudo python3 ./Steganography.py -v -d /home/kali/Desktop/Test/test.mp4
+====================================================================================================
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣿⣿⣾⣿⣿⣷⣄⣀⣯⣯⣳⣄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠑⠲⢦⣤⣈⡛⠿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⣿⣿⣧⠀⠀
+⠀⠀⠀⠀⠀⠐⠢⣤⣄⣈⠙⠿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣷⣶⣿⣿⣿⡆⠀_⠀                             _
+⠀⠀⠀⠀⠐⠠⢤⣄⣉⣛⠿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿(⠀)        _                   (_ )
+⠀⠀⠀⠀⠲⢤⣤⣈⡙⠻⢿⣿⣿⠿⠿⠛⠛⠉⠉⠀⠀⠀⠀⠉___|⠀|__    /'_`\   ___ ___    __  | |   __    _    ___
+⠀⠀⠀⠢⢤⣀⣈⠙⠿⣿⣷⠋⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀/'___|⠀⠀_ `\/'/'_` )/' _ ` _ `\/'__`\| | /'__`\/'_`\/' _ `\ 
+⠀⠀⠀⢤⣀⡉⠛⠿⣷⣶⠃⢠⣶⣿⣿⠿⠿⣿⣿⣷⣄(⠀(___|⠀| | ( ( (_| || ( ) ( ) (  ___/| |(  ___( (_) | ( ) |
+⠀⠀⠀⢀⣈⠙⠻⢶⣾⡅⠀⣾⣿⠋⠀⠀⢤⣄⠉⢿⣿`\____(_) (_)\ `\__,_(_) (_) (_`\____(___`\____`\___/(_) (_)
+⠀⠀⠀⠈⠙⠻⣿⣶⣾⡅⠀⣿⣿⡀⠀⠀⠀⣻⡇⢸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀     `\_____)
+⠀⠀⠀⠀⠻⣷⣶⣯⣿⣷⡀⠘⢿⣿⣶⣶⣾⣿⠇⣸⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣦⣀⠉⠙⠛⠉⢁⣴⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⣿⣿⣿⣿⣷⣶⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+====================================================================================================
+Ch@meleon STARTED
+====================================================================================================
+[INFO] Video Steganography DECODING
+
+[INFO] temp directory is created
+
+[*] The Encoded data was:hii
+
+[INFO] temp files are cleaned up
+====================================================================================================
+```
 
 
 ## Authors :
@@ -109,3 +179,5 @@ The application must be used for **"EDUCATIONAL PURPOSES ONLY"**
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abanteeka-acharya-1867ab225/)
 ###### **PRIYANSHI PANCHAL** :
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/priyanshi-panchal-25069022a/)
+
+
