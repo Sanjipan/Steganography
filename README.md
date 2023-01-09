@@ -1,4 +1,3 @@
-
 # STEGANOGRAPHY TOOL
 
 ***A Advance Steganography Tool made with Python*** 
@@ -20,40 +19,40 @@ kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 
 **-> For *Audio Cover* File** :
 ```bash
-kali@kali:~$ # Encoding
+# Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -a -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --audio --encode <location of file>
-kali@kali:~$ # Decoding
+# Decoding
     kali@kali:~$ Sudo python3 ./Steganography.py -a -d <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --audio --decode <location of file>
 ```
 
 **-> For *Video Cover* File** :
 ```bash
-kali@kali:~$ # Encoding
+# Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -v -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --video --encode <location of file>
-kali@kali:~$ # Decoding
+# Decoding
     kali@kali:~$ Sudo python3 ./Steganography.py -v -d <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --video --decode <location of file>
 ```
 
 **-> For *Image Cover* File** :
 ```bash
-kali@kali:~$ # Encoding
+# Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -i -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --image --encode <location of file>
-kali@kali:~$ # Decoding
+# Decoding
     kali@kali:~$ Sudo python3 ./Steganography.py -i -d <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --image --decode <location of file>
 ```
 
 **-> For *Text Cover* File** :
 ```bash
-kali@kali:~$ # Encoding
+# Encoding
     kali@kali:~$ Sudo python3 ./Steganography.py -t -e <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --text --encode <location of file>
-kali@kali:~$ # Decoding
+# Decoding
     kali@kali:~$ Sudo python3 ./Steganography.py -t -d <location of file>
     kali@kali:~$ Sudo python3 ./Steganography.py --text --decode <location of file>
 ```
