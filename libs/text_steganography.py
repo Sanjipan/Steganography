@@ -94,10 +94,11 @@ def Text_steganography(file, n):
                 for letters in T1:
                     if letters in ZWC_reverse:
                         binary_extract = binary_extract + ZWC_reverse[letters]
-                    if binary_extract == "111111111111":
+                    if letters == "111111111111":
                         break
                     else:
-                        temp = temp + binary_extract
+                        if len(binary_extract) == 12:
+                            temp = temp + binary_extract
         print("[INFO] Encrypted message present in code bits: {}".format(temp))
         print("[INFO] Length of encoded bits:- {}".format(len(temp)))
         i = 0
