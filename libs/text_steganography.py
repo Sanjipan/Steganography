@@ -99,7 +99,7 @@ def Text_steganography(file, n):
                     else:
                         temp = temp + binary_extract
         print("[INFO] Encrypted message present in code bits: {}".format(temp))
-        print("[INFO] Length of encoded bits:- ".format(len(temp)))
+        print("[INFO] Length of encoded bits:- {}".format(len(temp)))
         i = 0
         a = 0
         b = 4
