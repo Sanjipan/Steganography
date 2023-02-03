@@ -69,10 +69,10 @@ def main():
         elif args.text and args.decode and t:
             text_steganography.Text_steganography(args.filename, 1)
             t = False
-        elif args.vedio and args.encode and t:
+        elif args.video and args.encode and t:
             video_steganography.Video_Steganography(args.filename, 0)
             t = False
-        elif args.vedio and args.decode and t:
+        elif args.video and args.decode and t:
             video_steganography.Video_Steganography(args.filename, 1)
             t = False
         elif args.image and args.encode and t:
