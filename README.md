@@ -79,7 +79,7 @@ kali@kali:~$ sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File L
 **For HELP** :
 ```console
 kali@kali:~$ sudo python3 ./Steganography.py -h
-kali@kali:~$ sudo python3 ./Steganography.py -help
+kali@kali:~$ sudo python3 ./Steganography.py --help
 ```
 ## Demo :
 ```console
