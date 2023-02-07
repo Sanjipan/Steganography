@@ -11,7 +11,7 @@ This program is made and designed for **Linux Opearing System** ***only***.
 
 ## Installation
 
-Install my-project with npm
+Clone the repository :
 
 ```console
 kali@kali:~$ git clone https://github.com/Sanjipan/Steganography
