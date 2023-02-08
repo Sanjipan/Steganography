@@ -21,12 +21,12 @@ Install Python Libraries :
 ```console
 kali@kali:~$ pip install argparse
 kali@kali:~$ pip install Wave
-kali@kali:~$ pip install opencv-python
+kali@kali:~$ sudo pip install opencv-python
 kali@kali:~$ pip install numpy
 kali@kali:~$ pip install Pillow
 kali@kali:~$ pip install pytest-shutil
 kali@kali:~$ pip install subprocess.run
-kali@kali:~$ pip install stegano
+kali@kali:~$ sudo pip install stegano
 ```
     
 ## How To Use?
