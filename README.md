@@ -11,7 +11,7 @@ This program is made and designed for **Linux Opearing System** ***only***.
 
 ## Installation
 
-Install my-project with npm
+Clone the repository :
 
 ```console
 kali@kali:~$ git clone https://github.com/Sanjipan/Steganography
@@ -21,12 +21,12 @@ Install Python Libraries :
 ```console
 kali@kali:~$ pip install argparse
 kali@kali:~$ pip install Wave
-kali@kali:~$ pip install opencv-python
+kali@kali:~$ sudo pip install opencv-python
 kali@kali:~$ pip install numpy
 kali@kali:~$ pip install Pillow
 kali@kali:~$ pip install pytest-shutil
 kali@kali:~$ pip install subprocess.run
-kali@kali:~$ pip install stegano
+kali@kali:~$ sudo pip install stegano
 ```
     
 ## How To Use?
@@ -34,52 +34,52 @@ kali@kali:~$ pip install stegano
 **To *Use the Code*** :
 ```console
 kali@kali:~$ cd Steganography
-kali@kali:~$ Sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File Location>
+kali@kali:~$ sudo python3 ./Steganography.py <File Type> <Encode/Decode> <File Location>
 ```
 
 **-> For *Audio Cover* File** :
 ```console
 # Encoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -a -e <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --audio --encode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -a -e <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --audio --encode <location of file>
 # Decoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -a -d <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --audio --decode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -a -d <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --audio --decode <location of file>
 ```
 
 **-> For *Video Cover* File** :
 ```console
 # Encoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -v -e <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --video --encode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -v -e <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --video --encode <location of file>
 # Decoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -v -d <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --video --decode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -v -d <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --video --decode <location of file>
 ```
 
 **-> For *Image Cover* File** :
 ```console
 # Encoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -i -e <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --image --encode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -i -e <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --image --encode <location of file>
 # Decoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -i -d <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --image --decode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -i -d <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --image --decode <location of file>
 ```
 
 **-> For *Text Cover* File** :
 ```console
 # Encoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -t -e <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --text --encode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -t -e <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --text --encode <location of file>
 # Decoding
-    kali@kali:~$ Sudo python3 ./Steganography.py -t -d <location of file>
-    kali@kali:~$ Sudo python3 ./Steganography.py --text --decode <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py -t -d <location of file>
+    kali@kali:~$ sudo python3 ./Steganography.py --text --decode <location of file>
 ```
 **For HELP** :
 ```console
-kali@kali:~$ Sudo python3 ./Steganography.py -h
-kali@kali:~$ Sudo python3 ./Steganography.py -help
+kali@kali:~$ sudo python3 ./Steganography.py -h
+kali@kali:~$ sudo python3 ./Steganography.py --help
 ```
 ## Demo :
 ```console
